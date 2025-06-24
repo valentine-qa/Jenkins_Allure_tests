@@ -62,5 +62,5 @@ def test_successful():
         #     have.texts(first_name, last_name, "alex@egorov.com", "Some street 1"))
 
         attach.add_screenshot(browser)
-        attach.add_logs(browser)
+        attach.add_html(browser)
         attach.add_html(browser)

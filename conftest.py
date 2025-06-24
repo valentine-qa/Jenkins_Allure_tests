@@ -12,7 +12,7 @@ from utils import attach
 @pytest.fixture(scope='function')
 def setup_browser(request):
     options = Options()
-    capabilities = {
+    selenoid_capabilities = {
         "browserName": "chrome",
         "browserVersion": "127.0",
         "selenoid:options": {
@@ -20,7 +20,7 @@ def setup_browser(request):
             "enableVideo": True
         }
     }
-    options.capabilities.update(capabilities)
+    options.capabilities.update(selenoid_capabilities)
     driver = webdriver.Remote(
         command_executor=f"https://user1:1234@selenoid.autotests.cloud/wd/hub",
         options=options
