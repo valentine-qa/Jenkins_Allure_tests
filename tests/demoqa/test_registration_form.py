@@ -64,3 +64,4 @@ def test_successful():
         attach.add_screenshot(browser)
         attach.add_html(browser)
         attach.add_html(browser)
+        attach.add_video(browser)
