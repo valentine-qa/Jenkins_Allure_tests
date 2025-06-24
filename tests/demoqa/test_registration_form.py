@@ -23,8 +23,7 @@ def test_successful():
         command_executor=f"https://user1:1234@selenoid.autotests.cloud/wd/hub",
         options=options
     )
-
-    browser.config.driver = driver
+    browser.Config.driver = driver
 
     first_name = "Alex"
     last_name = "Egorov"
