@@ -3,7 +3,6 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selene import Browser, Config
-
 from utils import attach
 
 
@@ -30,8 +29,6 @@ def setup_browser(request):
     yield browser
 
     attach.add_screenshot(browser)
-    attach.add_logs(browser)
+    attach.add_html(browser)
     attach.add_html(browser)
     attach.add_video(browser)
-
-    browser.quit()
