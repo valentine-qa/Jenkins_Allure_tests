@@ -1,19 +1,26 @@
 import pytest
 
+
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selene import Browser, Config
 
 from utils import attach
 
+def pytest_addoption(parser):
+    parser.addoption(
+        '--browser', help='Браузер в котором будут запущены тесты',
+        choices= ['firefox', 'chrome'],
+        default='chrome'
+    )
 
-# from utils import attach
 
 @pytest.fixture(scope='function')
 def setup_browser(request):
+    browser_name = request.config.getoption('--browser')
     options = Options()
     selenoid_capabilities = {
-        "browserName": "chrome",
+        "browserName": browser_name,
         "browserVersion": "127.0",
         "selenoid:options": {
             "enableVNC": True,
