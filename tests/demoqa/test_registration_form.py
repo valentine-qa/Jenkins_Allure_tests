@@ -1,10 +1,12 @@
 import allure
-from selene import have, by
+from selene import have, by, browser
+
+from utils import attach
 
 
 @allure.title("Successful fill form")
-def test_successful(setup_browser):
-    browser = setup_browser
+def test_successful():
+    # browser = setup_browser
 
     first_name = "Alex"
     last_name = "Egorov"
@@ -40,3 +42,7 @@ def test_successful(setup_browser):
         browser.element("#example-modal-sizes-title-lg").should(have.text("Thanks for submitting the form"))
         # browser.element(".table-responsive").should(
         #     have.texts(first_name, last_name, "alex@egorov.com", "Some street 1"))
+
+        attach.add_screenshot(browser)
+        attach.add_logs(browser)
+        attach.add_html(browser)
