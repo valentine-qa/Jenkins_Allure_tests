@@ -1,5 +1,5 @@
 import allure
-from selene import have, by, browser
+from selene import have, by
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selene.support.shared import browser
